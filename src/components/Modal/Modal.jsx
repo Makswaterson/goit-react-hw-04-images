@@ -19,13 +19,6 @@ export const Modal = ({ onClose, src, alt }) => {
     };
   }, [onClose]);
 
-  // componentDidMount() {
-  //   window.addEventListener('keydown', this.handleKeyDown);
-  // }
-  // componentWillUnmount() {
-  //   window.removeEventListener('keydown', this.handleKeyDown);
-  // }
-
   const handleBackDropDown = e => {
     if (e.currentTarget === e.target) {
       onClose();

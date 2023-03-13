@@ -40,7 +40,6 @@ export const App = () => {
         setPictures(prevState => [...prevState, ...hits]);
         setShowBtnLoadMore(page < Math.ceil(totalHits / 12));
       } catch (error) {
-        setError(error);
         toast.error(
           `Sorry.There are some problems, reload and try again ... 😭`
         );
@@ -50,25 +49,6 @@ export const App = () => {
     };
     fetchPictures();
   }, [inputValue, page]);
-
-  // const fetchPictures = async () => {
-  //   try {
-  //     setLoader(true);
-  //     const { hits, totalHits } = await fetchImages(inputValue, page);
-  //     if (hits.length === 0) {
-  //       toast.error(`Sorry.There are not photos of ${inputValue} ... 😭`);
-  //     }
-  //     setPictures(prevState => [...prevState, ...hits]);
-  //     setShowBtnLoadMore(page < Math.ceil(totalHits / 12));
-  //   } catch (error) {
-  //     setError(error);
-  //     toast.error(
-  //       `Sorry.There are some problems, reload and try again ... 😭`
-  //     );
-  //   } finally {
-  //     setLoader(false);
-  //   }
-  // };
 
   const onLoadMore = () => {
     setPage(prevState => prevState + 1);
@@ -97,6 +77,7 @@ export const App = () => {
     </div>
   );
 };
+
 // export class App extends Component {
 //   state = {
 //     inputValue: '',
