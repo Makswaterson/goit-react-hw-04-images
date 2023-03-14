@@ -12,7 +12,7 @@ export const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [pictures, setPictures] = useState([]);
   const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
+  const [errorToast, setError] = useState(null);
   const [loader, setLoader] = useState(false);
   const [showBtnLoadMore, setShowBtnLoadMore] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -40,18 +40,16 @@ export const App = () => {
         setPictures(prevState => [...prevState, ...hits]);
         setShowBtnLoadMore(page < Math.ceil(totalHits / 12));
       } catch (error) {
-        setError(error);
+        setError(error.message);
         toast.error(
-          setError(error),
-          error,
-          `Sorry.There are some problems, reload and try again ... 😭`
+          `Sorry.There are some problems ${errorToast}, reload and try again ... 😭`
         );
       } finally {
         setLoader(false);
       }
     };
     fetchPictures();
-  }, [inputValue, page]);
+  }, [inputValue, page, errorToast]);
 
   const onLoadMore = () => {
     setPage(prevState => prevState + 1);
