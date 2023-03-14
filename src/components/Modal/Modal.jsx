@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
+console.log(modalRoot);
 
 export const Modal = ({ onClose, src, alt }) => {
   useEffect(() => {
