@@ -12,7 +12,7 @@ export const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [pictures, setPictures] = useState([]);
   const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const [loader, setLoader] = useState(false);
   const [showBtnLoadMore, setShowBtnLoadMore] = useState(false);
   const [showModal, setShowModal] = useState(false);
